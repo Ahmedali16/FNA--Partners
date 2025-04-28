@@ -47,7 +47,7 @@ export default function ReliableServices() {
         <Box maxWidth="1100px" mx="auto">
           <Grid container alignItems="center" spacing={4}>
             {/* Text Column */}
-            <Grid item xs={12} md={6}>
+            <Grid item size={{xs:12,md:6}}>
               <Typography
                 component="h2"
                 variant="h5"
@@ -116,8 +116,8 @@ export default function ReliableServices() {
               </Button>
             </Grid>
 
-            {/* Image Column */}
-            <Grid item xs={12} md={6}>
+    
+            <Grid item size={{xs:12,md:6}}>
               <Box
                 data-aos="fade-up"
                 data-aos-delay={500}

@@ -104,7 +104,7 @@ export default function ServiceFaqs() {
 
           <Grid container spacing={2}>
             {faqs.map((faq, i) => (
-              <Grid key={i} item xs={12} md={6}>
+              <Grid key={i} item size={{xs:12,md:6}}>
                 <Accordion
                   expanded={expanded === `panel${i}`}
                   onChange={handleChange(`panel${i}`)}
