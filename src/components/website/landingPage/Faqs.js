@@ -1,6 +1,8 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import Head from 'next/head'
+// src/components/website/landingPage/Faqs.js
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import {
   Box,
   Grid,
@@ -9,17 +11,17 @@ import {
   AccordionSummary,
   AccordionDetails,
   useTheme,
-} from '@mui/material'
-import AddIcon from '@mui/icons-material/Add'
-import RemoveIcon from '@mui/icons-material/Remove'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import FormOnly from '../contact-us/FormOnly'
-import { aquaColor, blackColor } from '@/components/utils/Colors'
+} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import FormOnly from '../contact-us/FormOnly';
+import { aquaColor, blackColor } from '@/components/utils/Colors';
 
 export default function Faqs() {
-  const theme = useTheme()
-  const [expanded, setExpanded] = useState(false)
+  const theme = useTheme();
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -27,8 +29,8 @@ export default function Faqs() {
       easing: 'ease-out',
       once: true,
       anchorPlacement: 'top-center',
-    })
-  }, [])
+    });
+  }, []);
 
   const faqs = [
     {
@@ -61,19 +63,19 @@ export default function Faqs() {
       answer:
         'Just fill out the form on the left or reach out directly. One of our advisors will contact you within 24 hours to kick things off.',
     },
-  ]
+  ];
 
-  const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false)
-  }
+  const handleChange = (panel) => (_event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <>
       <Head>
-        <title>FAQ – FNA Partners | Bookkeeping & Accounting UAE & KSA</title>
+        <title>FAQ – FNA Partners | Bookkeeping &amp; Accounting UAE &amp; KSA</title>
         <meta
           name="description"
-          content="Got questions? We’ve got answers! See our FAQs about bookkeeping, VAT compliance, and financial reporting for UAE & Saudi Arabia."
+          content="Got questions? We&apos;ve got answers! See our FAQs about bookkeeping, VAT compliance, and financial reporting for UAE &amp; Saudi Arabia."
         />
         <meta
           name="keywords"
@@ -84,19 +86,19 @@ export default function Faqs() {
       <Box mx={2}>
         <Box maxWidth="1100px" mx="auto" py={8}>
           <Grid container spacing={4} alignItems="center">
-            {/* Left column: form */}
-            <Grid  size={{xs:12,md:6}}>
+            {/* Left column: contact form */}
+            <Grid item size={{xs:12,md:6}}>
               <FormOnly />
             </Grid>
 
-            {/* Right column: FAQ */}
-            <Grid size={{xs:12,md:6}}>
+            {/* Right column: FAQ list */}
+            <Grid item size={{xs:12,md:6}}>
               <Typography
                 component="h2"
                 variant="h5"
                 sx={{ fontWeight: 600, mb: 1 }}
                 data-aos="fade-up"
-                data-aos-delay="100"
+                data-aos-delay={100}
               >
                 Frequently Asked Questions
               </Typography>
@@ -105,9 +107,9 @@ export default function Faqs() {
                 variant="body1"
                 sx={{ mb: 4, color: blackColor }}
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay={200}
               >
-                We understand that you might have a few questions along the way, and we're here to make things as clear as possible.
+                We understand that you might have a few questions along the way, and we&apos;re here to make things as clear as possible.
               </Typography>
 
               {faqs.map((faq, i) => (
@@ -148,12 +150,15 @@ export default function Faqs() {
                       '& .MuiAccordionSummary-content': { margin: 0 },
                     }}
                   >
-                    <Typography sx={{ fontWeight: 500 ,fontSize:"15px"}}>
+                    <Typography sx={{ fontWeight: 500, fontSize: '15px' }}>
                       {faq.question}
                     </Typography>
                   </AccordionSummary>
+
                   <AccordionDetails sx={{ px: 2, pb: 2 }}>
-                    <Typography fontSize={"15px"} color='#434343'>{faq.answer}</Typography>
+                    <Typography fontSize="15px" color="#434343">
+                      {faq.answer}
+                    </Typography>
                   </AccordionDetails>
                 </Accordion>
               ))}
@@ -162,5 +167,5 @@ export default function Faqs() {
         </Box>
       </Box>
     </>
-  )
+  );
 }

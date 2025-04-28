@@ -15,7 +15,7 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import FormOnly from '../contact-us/FormOnly'
-import { aquaColor, blackColor } from '@/components/utils/Colors'
+import { aquaColor } from '@/components/utils/Colors'
 
 export default function ServiceFaqs() {
   const [expanded, setExpanded] = useState(false)
@@ -69,10 +69,10 @@ export default function ServiceFaqs() {
   return (
     <>
       <Head>
-        <title>FAQ – FNA Partners | Bookkeeping & Accounting UAE & KSA</title>
+        <title>FAQ – FNA Partners | Bookkeeping &amp; Accounting UAE &amp; KSA</title>
         <meta
           name="description"
-          content="Got questions? We’ve got answers! See our FAQs about bookkeeping, VAT compliance, and financial reporting for UAE & Saudi Arabia."
+          content="Got questions? We&apos;ve got answers! See our FAQs about bookkeeping, VAT compliance, and financial reporting for UAE &amp; Saudi Arabia."
         />
         <meta
           name="keywords"
@@ -82,79 +82,77 @@ export default function ServiceFaqs() {
 
       <Box mx={2}>
         <Box maxWidth="1100px" mx="auto" py={8}>
-        
-              <Box textAlign="center" mb={4} maxWidth={"700px"} mx={"auto"}>
-                <Typography
-                  component="h2"
-                  variant="h5"
-                  sx={{ fontWeight: 600, fontSize: '30px' }}
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  Frequently Asked Questions
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ color: "#434343", fontSize: '20px' }}
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  We understand that you might have a few questions along the way, and we're here to make things as clear as possible.
-                </Typography>
-              </Box>
+          <Box textAlign="center" mb={4} maxWidth="700px" mx="auto">
+            <Typography
+              component="h2"
+              variant="h5"
+              sx={{ fontWeight: 600, fontSize: '30px' }}
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              Frequently Asked Questions
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ color: '#434343', fontSize: '20px' }}
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              We understand that you might have a few questions along the way, and we&apos;re here to make things as clear as possible.
+            </Typography>
+          </Box>
 
-              <Grid container spacing={2}>
-                {faqs.map((faq, i) => (
-                  <Grid key={i} item size={{xs:12,md:6}}>
-                    <Accordion
-                      expanded={expanded === `panel${i}`}
-                      onChange={handleChange(`panel${i}`)}
-                      sx={{
-                        boxShadow: 3,
-                        borderRadius: 1,
-                        '&::before': { display: 'none' },
-                      }}
-                    >
-                      <AccordionSummary
-                        expandIcon={
-                          <Box
-                            sx={{
-                              width: 26,
-                              height: 26,
-                              bgcolor: aquaColor,
-                              borderRadius: '50%',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
-                          >
-                            {expanded === `panel${i}` ? (
-                              <RemoveIcon sx={{ color: '#fff', fontSize: 16 }} />
-                            ) : (
-                              <AddIcon sx={{ color: '#fff', fontSize: 16 }} />
-                            )}
-                          </Box>
-                        }
+          <Grid container spacing={2}>
+            {faqs.map((faq, i) => (
+              <Grid key={i} item xs={12} md={6}>
+                <Accordion
+                  expanded={expanded === `panel${i}`}
+                  onChange={handleChange(`panel${i}`)}
+                  sx={{
+                    boxShadow: 3,
+                    borderRadius: 1,
+                    '&::before': { display: 'none' },
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={
+                      <Box
                         sx={{
-                          px: 2,
-                          py: 1.5,
-                          '& .MuiAccordionSummary-content': { margin: 0 },
+                          width: 26,
+                          height: 26,
+                          bgcolor: aquaColor,
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
                         }}
                       >
-                        <Typography sx={{ fontWeight: 500, fontSize: '15px' }}>
-                          {faq.question}
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails sx={{ px: 2, pb: 2 }}>
-                        <Typography sx={{ fontSize: '15px', color: '#434343' }}>
-                          {faq.answer}
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                  </Grid>
-                ))}
+                        {expanded === `panel${i}` ? (
+                          <RemoveIcon sx={{ color: '#fff', fontSize: 16 }} />
+                        ) : (
+                          <AddIcon sx={{ color: '#fff', fontSize: 16 }} />
+                        )}
+                      </Box>
+                    }
+                    sx={{
+                      px: 2,
+                      py: 1.5,
+                      '& .MuiAccordionSummary-content': { margin: 0 },
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500, fontSize: '15px' }}>
+                      {faq.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails sx={{ px: 2, pb: 2 }}>
+                    <Typography sx={{ fontSize: '15px', color: '#434343' }}>
+                      {faq.answer}
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
               </Grid>
-        
+            ))}
+          </Grid>
         </Box>
       </Box>
     </>
