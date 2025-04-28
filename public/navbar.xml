@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navbar>
+  <items>
+    <item>
+      <title>Home</title>
+      <route>/</route>
+    </item>
+    <item>
+      <title>About Us</title>
+      <route>/about-us</route>
+    </item>
+    <item>
+      <title>We Serve</title>
+      <route>/we-serve</route>
+    </item>
+  </items>
+  <login>
+    <title>Login</title>
+    <route>/login</route>
+  </login>
+</navbar>

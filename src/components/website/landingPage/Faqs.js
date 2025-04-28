@@ -1,0 +1,166 @@
+'use client'
+import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
+import {
+  Box,
+  Grid,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  useTheme,
+} from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import FormOnly from '../contact-us/FormOnly'
+import { aquaColor, blackColor } from '@/components/utils/Colors'
+
+export default function Faqs() {
+  const theme = useTheme()
+  const [expanded, setExpanded] = useState(false)
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+      anchorPlacement: 'top-center',
+    })
+  }, [])
+
+  const faqs = [
+    {
+      question: 'What bookkeeping services do you offer in UAE & Saudi Arabia?',
+      answer:
+        'We provide end-to-end solutions including daily transaction recording, accounts payable/receivable, payroll processing, bank reconciliations, VAT-compliant reporting, and custom financial statements.',
+    },
+    {
+      question: 'Why outsource bookkeeping to FNA Partners?',
+      answer:
+        'Outsourcing to FNA Partners lets you leverage our expertise, reduce overhead, and stay fully compliant with local regulations while focusing on your core business.',
+    },
+    {
+      question: 'Are your services compliant with UAE VAT & Saudi Zakat regulations?',
+      answer:
+        'Absolutely. Our certified accountants keep up to date on all VAT and Zakat rules in both jurisdictions to ensure 100% compliance.',
+    },
+    {
+      question: 'How much do bookkeeping services cost in UAE/KSA?',
+      answer:
+        'Our pricing is customized based on transaction volume, scope of work, and complexity. Contact us for a free quote tailored to your needs.',
+    },
+    {
+      question: 'How often will I receive financial reports?',
+      answer:
+        'We offer daily summaries, weekly dashboards, and detailed monthly statements—pick the cadence that suits your business.',
+    },
+    {
+      question: 'How do I get started?',
+      answer:
+        'Just fill out the form on the left or reach out directly. One of our advisors will contact you within 24 hours to kick things off.',
+    },
+  ]
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false)
+  }
+
+  return (
+    <>
+      <Head>
+        <title>FAQ – FNA Partners | Bookkeeping & Accounting UAE & KSA</title>
+        <meta
+          name="description"
+          content="Got questions? We’ve got answers! See our FAQs about bookkeeping, VAT compliance, and financial reporting for UAE & Saudi Arabia."
+        />
+        <meta
+          name="keywords"
+          content="FNA Partners FAQ, bookkeeping FAQ, accounting FAQ, VAT compliance, financial reporting FAQ"
+        />
+      </Head>
+
+      <Box mx={2}>
+        <Box maxWidth="1100px" mx="auto" py={8}>
+          <Grid container spacing={4} alignItems="center">
+            {/* Left column: form */}
+            <Grid  size={{xs:12,md:6}}>
+              <FormOnly />
+            </Grid>
+
+            {/* Right column: FAQ */}
+            <Grid size={{xs:12,md:6}}>
+              <Typography
+                component="h2"
+                variant="h5"
+                sx={{ fontWeight: 600, mb: 1 }}
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                Frequently Asked Questions
+              </Typography>
+
+              <Typography
+                variant="body1"
+                sx={{ mb: 4, color: blackColor }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                We understand that you might have a few questions along the way, and we're here to make things as clear as possible.
+              </Typography>
+
+              {faqs.map((faq, i) => (
+                <Accordion
+                  key={i}
+                  expanded={expanded === `panel${i}`}
+                  onChange={handleChange(`panel${i}`)}
+                  sx={{
+                    boxShadow: 3,
+                    borderRadius: 1,
+                    mb: 2,
+                    '&::before': { display: 'none' },
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={
+                      <Box
+                        sx={{
+                          width: 26,
+                          height: 26,
+                          bgcolor: aquaColor,
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        {expanded === `panel${i}` ? (
+                          <RemoveIcon sx={{ color: '#fff', fontSize: 16 }} />
+                        ) : (
+                          <AddIcon sx={{ color: '#fff', fontSize: 16 }} />
+                        )}
+                      </Box>
+                    }
+                    sx={{
+                      px: 2,
+                      py: 1.5,
+                      '& .MuiAccordionSummary-content': { margin: 0 },
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 500 ,fontSize:"15px"}}>
+                      {faq.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails sx={{ px: 2, pb: 2 }}>
+                    <Typography fontSize={"15px"} color='#434343'>{faq.answer}</Typography>
+                  </AccordionDetails>
+                </Accordion>
+              ))}
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </>
+  )
+}
