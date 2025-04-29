@@ -42,7 +42,13 @@ function Banner() {
   return (
     <>
       <Head>
-
+      <link
+    rel="preload"
+    href="/videos/banner.mp4"
+    as="video"
+    type="video/mp4"
+     crossOrigin="anonymous"
+  />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>
@@ -87,14 +93,53 @@ function Banner() {
           overflow: 'hidden',
         }}
       >
-        <Image
+        {/* <Image
           src="/images/banner.png"
           alt="Banner"
           fill
           style={{ objectFit: 'cover' }}
           quality={100}
           priority
-        />
+        /> */}
+<Box
+  sx={{
+    position: 'relative',
+    width: '100%',
+    height: '90vh',
+    overflow: 'hidden',
+  }}
+>
+  <video
+    src="/videos/banner.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      zIndex: -2,         // sit behind the overlay
+    }}
+  />
+
+  {/* ← Add this overlay */}
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0,0,0,0.5)',  // 50% black
+      zIndex: -1,
+    }}
+  />
+
 
         <Box
           sx={{
@@ -151,6 +196,7 @@ function Banner() {
             Get Your Free Financial Consultation
           </Button>
         </Box>
+      </Box>
       </Box>
     </>
   );
