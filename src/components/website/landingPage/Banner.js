@@ -44,7 +44,8 @@ function Banner() {
       <Head>
       <link
     rel="preload"
-    href="/videos/banner.mp4"
+    // href="/videos/banner.mp4"
+     href="/videos/dubai.mp4"
     as="video"
     type="video/mp4"
      crossOrigin="anonymous"
@@ -105,12 +106,12 @@ function Banner() {
   sx={{
     position: 'relative',
     width: '100%',
-    height: '90vh',
+    height: '97vh',
     overflow: 'hidden',
   }}
 >
   <video
-    src="/videos/banner.mp4"
+    src="/videos/dubai.mp4"
     autoPlay
     muted
     loop
