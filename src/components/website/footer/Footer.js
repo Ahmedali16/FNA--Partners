@@ -1,23 +1,28 @@
 
 "use client"
 import { aquaColor } from '@/components/utils/Colors'
-import { Box, Typography } from '@mui/material'
+import { EmailOutlined, PhoneOutlined } from '@mui/icons-material'
+import { Box, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 function Footer() {
     return (
-        <Box bgcolor={"#F8F8F8"} px={4} py={4} display={"flex"} flexDirection={["column", "column", "row"]}>
+        <Box bgcolor={"#F8F8F8"} px={4} py={4} >
 
 
+          <Grid container spacing={4}>
+            <Grid  size={{xs:12,sm:6,md:3}}>
             <Image
                 src="/images/faPartners.png"
                 alt="FA Partners Logo"
-                width={140}
+                width={170}
                 height={78}
             />
-            <Box display={"flex"} flexDirection={"column"} ml={[0, 0, 7]}>
+            </Grid>
+            <Grid size={{xs:12,sm:6,md:3}}>
+            <Box display={"flex"} flexDirection={"column"} >
                 <Typography fontWeight={"bold"} >
                     Site Map
                 </Typography>
@@ -31,6 +36,43 @@ function Footer() {
                     <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>  Contact Us  </Typography>
                 </Link>
             </Box>
+            </Grid>
+            <Grid size={{xs:12,sm:6,md:3}}>
+            <Box display={"flex"} flexDirection={"column"} >
+                <Typography fontWeight={"bold"} >
+                    Quick Links
+                </Typography>
+                <Link href={"/privacy-policy"} style={{ textDecoration: "none", color: "black" }}>
+                    <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>Privay Policy</Typography>
+                </Link>
+                <Link href={"/terms-and-condition"} style={{ textDecoration: "none", color: "black" }}>
+                    <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}> Terms and conditions  </Typography>
+                </Link>
+                <Link href={"/cookie-policy"} style={{ textDecoration: "none", color: "black" }}>
+                    <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}> Cookie Policy  </Typography>
+                </Link>
+            </Box>
+            </Grid>
+            <Grid size={{xs:12,sm:6,md:3}}>
+            <Box display={"flex"} flexDirection={"column"} >
+                <Typography fontWeight={"bold"} >
+                    Contact Us
+                </Typography>
+<Box display={"flex"} alignItems={"center"}>
+    <PhoneOutlined sx={{fontSize:18}}/>
+    <Typography ml={2} sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>050-2405436</Typography>
+
+    </Box>                 
+    <Box display={"flex"} alignItems={"center"}>
+    <EmailOutlined sx={{fontSize:18}}/>
+    <Typography ml={2} sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>info@fna-partners.com  </Typography>
+
+    </Box>  
+              
+            </Box>
+            </Grid>
+          </Grid>
+          
         </Box>
     )
 }

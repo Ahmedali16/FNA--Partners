@@ -68,7 +68,7 @@ export default function Navbar() {
         <Image
           src="/images/faPartners.png"
           alt="FA Partners Logo"
-          width={110}
+          width={120}
           height={58}
         />
       </Box>
@@ -98,9 +98,24 @@ export default function Navbar() {
             sx={{
               bgcolor: pathname === '/login' ? aquaColor : 'transparent',
               color: pathname === '/login' ? whiteColor : blackColor,
+              mx:2,
             }}
           >
             <Typography>Login</Typography>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding >
+          <ListItemButton
+            onClick={() => handleNavigation('/contact-us/')}
+            sx={{
+              bgcolor: pathname === '/contact-us/' ? aquaColor : 'transparent',
+              color: pathname === '/contact-us/' ? whiteColor : blackColor,
+              mx:2,
+              mt:2,
+              borderRadius:2
+            }}
+          >
+            <Typography>Contact Us</Typography>
           </ListItemButton>
         </ListItem>
       </List>
@@ -144,7 +159,7 @@ export default function Navbar() {
       >
         <Box
           sx={{
-            backgroundColor: 'rgba(255,255,255,0.5)',
+            backgroundColor: 'rgba(255,255,255,0.7)',
             backdropFilter: 'blur(2px)',
             borderRadius: 2,
           }}
@@ -152,8 +167,8 @@ export default function Navbar() {
           <Image
             src="/images/faPartners.png"
             alt="FA Partners Logo"
-            width={100}
-            height={48}
+            width={120}
+            height={51}
           />
         </Box>
 
@@ -186,6 +201,12 @@ export default function Navbar() {
           </Box>
         )}
         <Box display={['none', 'none', 'flex']}>
+        <Button
+            onClick={() => handleNavigation('/contact-us/')}
+            sx={{ ml: 2, color: whiteColor, bgcolor: aquaColor }}
+          >
+            Contact Us
+          </Button>
           <Button
             onClick={() => handleNavigation('/login')}
             sx={{ ml: 2, color: whiteColor, bgcolor: aquaColor }}
