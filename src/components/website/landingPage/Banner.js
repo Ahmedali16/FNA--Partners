@@ -2,7 +2,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { aquaColor } from '@/components/utils/Colors';
 import { useRef, useLayoutEffect  } from 'react';
 import gsap from 'gsap';
@@ -12,33 +12,51 @@ function Banner() {
   const subRef     = useRef(null)
   const btnRef     = useRef(null)
 
-  useLayoutEffect(() => {
-    const runAnimation = () => {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-        tl.from(headingRef.current, { y: 60, opacity: 0, duration: 1.2 })
-          .from(subRef.current,     { y: 40, opacity: 0, duration: 1   }, '-=0.8')
-          .from(btnRef.current,     { scale: 0.8, opacity: 0, duration: 0.8 }, '-=0.6')
+  // useLayoutEffect(() => {
+  //   const runAnimation = () => {
+  //     const ctx = gsap.context(() => {
+  //       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+  //       tl.from(headingRef.current, { y: 60, opacity: 0, duration: 1.2 })
+  //         .from(subRef.current,     { y: 40, opacity: 0, duration: 1   }, '-=0.8')
+  //         .from(btnRef.current,     { scale: 0.8, opacity: 0, duration: 0.8 }, '-=0.6')
 
-        const btn = btnRef.current
-        btn.addEventListener('mouseenter', () =>
-          gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' })
-        )
-        btn.addEventListener('mouseleave', () =>
-          gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' })
-        )
-      })
+  //       const btn = btnRef.current
+  //       btn.addEventListener('mouseenter', () =>
+  //         gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' })
+  //       )
+  //       btn.addEventListener('mouseleave', () =>
+  //         gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' })
+  //       )
+  //     })
 
-      return () => ctx.revert()
-    }
+  //     return () => ctx.revert()
+  //   }
 
-    if (document.readyState === 'complete') {
-      return runAnimation()
-    } else {
-      window.addEventListener('load', runAnimation, { once: true })
-      return () => window.removeEventListener('load', runAnimation)
-    }
-  }, [])
+  //   if (document.readyState === 'complete') {
+  //     return runAnimation()
+  //   } else {
+  //     window.addEventListener('load', runAnimation, { once: true })
+  //     return () => window.removeEventListener('load', runAnimation)
+  //   }
+  // }, [])
+   useEffect(() => {
+        const ctx = gsap.context(() => {
+          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+          tl.from(headingRef.current, { y: 60, opacity: 0, duration: 1.2 })
+            .from(subRef.current, { y: 40, opacity: 0, duration: 1 }, '-=0.8')
+            .from(btnRef.current, { scale: 0.8, opacity: 0, duration: 0.8 }, '-=0.6');
+    
+          const btn = btnRef.current;
+          btn.addEventListener('mouseenter', () =>
+            gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' })
+          );
+          btn.addEventListener('mouseleave', () =>
+            gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' })
+          );
+        });
+    
+        return () => ctx.revert();
+      }, []);
   return (
     <>
       <Head>
@@ -110,7 +128,7 @@ function Banner() {
     overflow: 'hidden',
   }}
 >
-  <video
+  {/* <video
     src="/videos/dubai.mp4"
     autoPlay
     muted
@@ -126,8 +144,27 @@ function Banner() {
       objectFit: 'cover',
       zIndex: -2,         // sit behind the overlay
     }}
-  />
+  /> */}
 
+  <video
+    src="/videos/dubai.mp4"
+    poster="/videos/dubai-poster.jpg"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      zIndex: -2,
+      willChange: 'transform',
+    }}
+  />
   {/* ← Add this overlay */}
   <Box
     sx={{
