@@ -241,7 +241,7 @@ export default function FormOnly() {
         }}
       >
         <Typography component="h2" textAlign={"center"} mt={2} variant="h6" sx={{ mb: 1, fontWeight: 400 }}>
-          Get Free Consultation Now
+         Get Your Free Consultation Now
         </Typography>
 
         <Formik

@@ -85,7 +85,7 @@ For 30 years, FNA Partners has been the financial backbone for businesses acros
                 variant="body1"
                 sx={{
                   mb: 4,
-                  color: "#A1A1A1",
+                  // color: "#A1A1A1",
                   fontWeight: 400,
                   fontSize: ["18px", "18px", "20px"],
                 }}

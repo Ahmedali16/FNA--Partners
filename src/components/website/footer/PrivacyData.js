@@ -57,8 +57,7 @@ export default function PrivacyData() {
       content: `Depending on your jurisdiction, you may have the right to:
 • Access, correct, or delete your personal data
 • Object to or restrict certain processing
-• Withdraw consent at any time
-• Lodge a complaint with a data protection authority`,
+• Withdraw consent at any time`,
     },
     {
       title: 'Security Measures',

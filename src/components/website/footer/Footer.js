@@ -1,8 +1,8 @@
 
 "use client"
 import { aquaColor } from '@/components/utils/Colors'
-import { EmailOutlined, PhoneOutlined } from '@mui/icons-material'
-import { Box, Grid, Typography } from '@mui/material'
+import { EmailOutlined, LinkedIn, PhoneOutlined } from '@mui/icons-material'
+import { Box, Grid, Icon, IconButton, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -43,7 +43,7 @@ function Footer() {
                     Quick Links
                 </Typography>
                 <Link href={"/privacy-policy"} style={{ textDecoration: "none", color: "black" }}>
-                    <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>Privay Policy</Typography>
+                    <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>Privacy Policy</Typography>
                 </Link>
                 <Link href={"/terms-and-condition"} style={{ textDecoration: "none", color: "black" }}>
                     <Typography sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}> Terms and conditions  </Typography>
@@ -68,6 +68,13 @@ function Footer() {
     <Typography ml={2} sx={{ ":hover": { color: aquaColor,transition:"0.3s" },transition:"0.3s" }}>info@fna-partners.com  </Typography>
 
     </Box>  
+    <Box mt={1}>
+<IconButton href='https://www.linkedin.com/company/fna-partners-gcc/' target='_blank'>
+
+        <LinkedIn  sx={{color:aquaColor}} />
+</IconButton>
+    </Box>
+
               
             </Box>
             </Grid>

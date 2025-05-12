@@ -63,7 +63,8 @@ function Banner() {
       <link
     rel="preload"
     // href="/videos/banner.mp4"
-     href="/videos/dubai.mp4"
+    //  href="/videos/dubai.mp4"
+     href="/videos/dubai2.mp4"
     as="video"
     type="video/mp4"
      crossOrigin="anonymous"
@@ -147,7 +148,7 @@ function Banner() {
   /> */}
 
   <video
-    src="/videos/dubai.mp4"
+    src="/videos/dubai2.mp4"
     poster="/videos/dubai-poster.jpg"
     autoPlay
     muted
@@ -215,7 +216,7 @@ function Banner() {
               fontSize: { xs: '17px', sm: '18px', md: '20px' },
             }}
           >
-            Precision Accounting. Proactive Auditing. Your Growth. Guaranteed.
+            Your financial, Our expertise
           </Typography>
 
           <Button
@@ -231,7 +232,7 @@ function Banner() {
             }}
             href="/contact-us"
           >
-            Get Your Free Financial Consultation
+            Get your free consultation
           </Button>
         </Box>
       </Box>
